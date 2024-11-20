@@ -18,12 +18,13 @@ function saveWord(event) {
 function searchWord(event) {
   let searchedWord = document.getElementById("textInput").value;
   event.preventDefault();
-  for (let i = 0; i < wordIndex; ++i) {
-    if (searchedWord == arrayOfWords[i]) {
+  for (let i = 0; i <= wordIndex; ++i) {
+    if (arrayOfWords.indexOf(searchedWord) >= 0) {
       alert("This word exists in dictionary");
       break;
     } else {
       alert("This word doesn't exist in dictionary");
-    }
+      break;
+    } 
   }
 }
