@@ -1,14 +1,11 @@
-let arrayOfWords = new Array();
+const arrayOfWords = [];
 let wordIndex = 0;
 function saveWord(event) {
   event.preventDefault();
   let found = 0;
-  let currentWord = document.getElementById("textInput").value;
-  for (let i = 0; i < wordIndex; ++i) {
-    if (currentWord == arrayOfWords[i]) {
-      found = 1;
-      break;
-    }
+  const currentWord = document.getElementById("textInput").value;
+  if (arrayOfWords.indexOf(currentWord) >= 0) {
+    found = 1;
   }
   if (found == 0) {
     arrayOfWords[wordIndex++] = currentWord;
@@ -16,15 +13,11 @@ function saveWord(event) {
 }
 
 function searchWord(event) {
-  let searchedWord = document.getElementById("textInput").value;
+  const searchedWord = document.getElementById("textInput").value;
   event.preventDefault();
-  for (let i = 0; i <= wordIndex; ++i) {
-    if (arrayOfWords.indexOf(searchedWord) >= 0) {
-      alert("This word exists in dictionary");
-      break;
-    } else {
-      alert("This word doesn't exist in dictionary");
-      break;
-    } 
+  if (arrayOfWords.indexOf(searchedWord) >= 0) {
+    alert("This word exists in dictionary");
+  } else {
+    alert("This word doesn't exist in dictionary");
   }
 }
