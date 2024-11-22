@@ -1,14 +1,10 @@
 const arrayOfWords = [];
-let wordIndex = 0;
+
 function saveWord(event) {
   event.preventDefault();
-  let found = 0;
   const currentWord = document.getElementById("textInput").value;
-  if (arrayOfWords.indexOf(currentWord) >= 0) {
-    found = 1;
-  }
-  if (found == 0) {
-    arrayOfWords[wordIndex++] = currentWord;
+  if (arrayOfWords.indexOf(currentWord) < 0) {
+    arrayOfWords.push(currentWord);
   }
 }
 
